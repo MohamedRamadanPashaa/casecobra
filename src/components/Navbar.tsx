@@ -42,6 +42,7 @@ export default async function Navbar() {
                     Dashboard ✨
                   </Link>
                 )}
+
                 <Link
                   href="/configure/upload"
                   className={buttonVariants({

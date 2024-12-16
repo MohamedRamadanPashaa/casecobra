@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/utils";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -42,7 +42,7 @@ export default function Steps() {
                   "absolute left-0 top-0 h-full w-1 bg-zinc-400 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full",
                   {
                     "bg-zinc-700": isCurrent,
-                    "bg-green-500": isCompleted,
+                    "bg-green-600": isCompleted,
                   }
                 )}
                 aria-hidden="true" // hide it from screen reader
@@ -56,10 +56,10 @@ export default function Steps() {
               >
                 <span className="flex shrink-0">
                   <Image
-                    alt="img"
+                    alt="snake img"
                     src={imgPath}
                     className={cn(
-                      "flex h-20 w-20 object-contain items-center justify-center",
+                      "flex size-20 object-contain items-center justify-center",
                       {
                         "border-none": isCompleted,
                         "border-zinc-700": isCurrent,
@@ -73,14 +73,18 @@ export default function Steps() {
                 <span className="ml-4 mt-0.5 flex h-full min-w-0 flex-col justify-center">
                   <span
                     className={cn("text-sm font-semibold text-zinc-700", {
-                      "text-primary": isCompleted,
-                      "text-zinc-700": isCurrent,
+                      "text-green-700": isCompleted,
+                      "text-zinc-900": isCurrent,
                     })}
                   >
                     {step.name}
                   </span>
 
-                  <span className="text-sm text-zinc-500">
+                  <span
+                    className={cn("text-sm text-zinc-400", {
+                      "text-zinc-600": isCompleted || isCurrent,
+                    })}
+                  >
                     {step.description}
                   </span>
                 </span>
@@ -90,7 +94,7 @@ export default function Steps() {
               {i !== 0 && (
                 <div className="absolute inset-0 hidden w-3 lg:block">
                   <svg
-                    className="h-full w-full text-gray-300"
+                    className="size-full text-gray-300"
                     viewBox="0 0 12 82"
                     fill="none"
                     preserveAspectRatio="none"

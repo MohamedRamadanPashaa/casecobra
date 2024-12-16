@@ -110,7 +110,7 @@ export default async function Page() {
               </CardHeader>
               <CardContent>
                 <div className="text-sm text-muted-foreground">
-                  of {formatePrice(WEEKLY_GOAL)} goal
+                  of {formatePrice(MONTHLY_GOAL)} goal
                 </div>
               </CardContent>
               <CardFooter>
